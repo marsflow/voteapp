@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Arr;
+use App\Enums\ElectionStatusEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,13 @@ class ElectionFactory extends Factory
      */
     public function definition(): array
     {
+        $start = fake()->dateTimeBetween('-2 weeks', '+1 weeks');
         return [
-            //
+            'title' => fake()->sentence(),
+            'description' => fake()->text(),
+            'started_at' => $start,
+            'ended_at' => $start->add(new \DateInterval('P1W')),
+            'status' => Arr::random(ElectionStatusEnum::cases()),
         ];
     }
 }
