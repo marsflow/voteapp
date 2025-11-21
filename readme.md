@@ -56,8 +56,6 @@ Support additional vote types:
 - Webhooks to sync with other systems  
 - Optional OTP verification  
 
----
-
 ## 📦 Tech Stack
 - **Laravel 12** (PHP 8.3+)
 - **Filament 4**
