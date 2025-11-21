@@ -26,8 +26,6 @@ Built with **Laravel 12** and **Filament 4**.
 - Real-time vote counting.
 - Easy management of candidates, members, committees, and more.
 
----
-
 ## 🧭 Roadmap
 
 ### 1️⃣ Custom Eligibility Rules
@@ -67,30 +65,3 @@ Support additional vote types:
 - **TailwindCSS**
 - **Alpine.js / Livewire**
 
----
-
-## 🛡️ License
-
-### Recommended License: **MIT License**
-MIT was chosen because:
-- It is very permissive  
-- Allows full commercial & private use  
-- Allows modification and redistribution  
-- Simple and widely recognized  
-- Encourages community adoption  
-
-Alternative for more protection: **Apache 2.0**
-
----
-
-## ℹ️ About This Project
-This project aims to provide an accessible, transparent, and customizable digital voting platform for community-level organizations. Many groups still rely on manual voting, which is time-consuming and error-prone.  
-This system brings modern digital voting to communities of any size, with strong focus on:
-- Simplicity  
-- Transparency  
-- Security  
-- Customizability  
-
----
-
-## 🔖 Tags
