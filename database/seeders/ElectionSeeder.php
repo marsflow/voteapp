@@ -29,7 +29,6 @@ class ElectionSeeder extends Seeder
         Committee::truncate();
         Election::truncate();
 
-        $order = 1;
         Election::factory()
             ->count(fake()->numberBetween(5, 10))
             ->has(
@@ -41,18 +40,14 @@ class ElectionSeeder extends Seeder
                     )
             )
             ->has(
-                Voter::factory()
-                    ->count(100)
-                    ->withVote()
-            )
-            ->has(
                 Committee::factory()
                     ->count(5)
             )
-            // ->hasCandidates(3)
-            // ->afterCreating(function () use (&$order) {
-            //     $order = 1;
-            // })
+            ->has(
+                Voter::factory()
+                    ->count(100)
+                    ->has(Vote::factory())
+            )
             ->create()
             ;
 

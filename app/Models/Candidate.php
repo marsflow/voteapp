@@ -13,4 +13,12 @@ class Candidate extends Model
     {
         return $this->hasMany(CandidateMember::class);
     }
+
+    public function members()
+    {
+        return $this->belongsToMany(Member::class, 'candidate_members')
+            ->using(CandidateMember::class);
+    }
+
+
 }

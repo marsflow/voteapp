@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ElectionStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +11,10 @@ class Election extends Model
     /** @use HasFactory<\Database\Factories\ElectionFactory> */
     use HasFactory;
 
+    protected $casts = [
+        'status' => ElectionStatusEnum::class,
+    ];
+
     public function candidates()
     {
         return $this->hasMany(Candidate::class);
@@ -17,11 +22,11 @@ class Election extends Model
 
     public function voters()
     {
-        return $this->hasMany(Voter::class);
+        return $this->belongsToMany(Member::class, Voter::make()->getTable());
     }
 
     public function committees()
     {
-        return $this->hasMany(Committee::class);
+        return $this->belongsToMany(Member::class, Committee::make()->getTable());
     }
 }
