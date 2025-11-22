@@ -14,10 +14,14 @@ class Candidate extends Model
         return $this->hasMany(CandidateMember::class);
     }
 
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
     public function members()
     {
-        return $this->belongsToMany(Member::class, 'candidate_members')
-            ->using(CandidateMember::class);
+        return $this->belongsToMany(Member::class, CandidateMember::make()->getTable());
     }
 
 

@@ -22,7 +22,8 @@ class Election extends Model
 
     public function voters()
     {
-        return $this->belongsToMany(Member::class, Voter::make()->getTable());
+        return $this->hasMany(Voter::class)
+            ;
     }
 
     public function committees()

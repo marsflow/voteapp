@@ -26,23 +26,4 @@ class VoterFactory extends Factory
             'member_id' => Member::factory(),
         ];
     }
-
-    public function withVote()
-    {
-        // $chance = fake()->numberBetween(65, 95);
-        return $this->state(function () {
-            return [];
-        })
-        ->afterCreating(function (Voter $voter) {
-            $chance = fake()->numberBetween(65, 95);
-            if (fake()->numberBetween(1, 100) <= $chance) {
-                $voter->vote()
-                    ->save(new Vote([
-                        'voter_id' => $voter->id,
-                        'candidate_id' => $voter->election->candidates->random()->id,
-                    ]));
-            }
-        })
-        ;
-    }
 }

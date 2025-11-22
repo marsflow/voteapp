@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Support\Arr;
 use App\Enums\ElectionStatusEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Election>
@@ -23,7 +24,7 @@ class ElectionFactory extends Factory
             'title' => fake()->sentence(),
             'description' => fake()->text(),
             'started_at' => $start,
-            'ended_at' => $start->add(new \DateInterval('P1W')),
+            'ended_at' => Carbon::instance($start)->addWeek(),
             'status' => Arr::random(ElectionStatusEnum::cases()),
         ];
     }

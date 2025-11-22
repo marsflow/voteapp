@@ -23,7 +23,7 @@ class CandidateFactory extends Factory
             'election_id' => Election::factory(),
             'title' => fake()->sentence(),
             'description' => fake()->text(),
-            'order' => rand() * 10,
+            'order' => rand(1, 10000),
         ];
     }
 }

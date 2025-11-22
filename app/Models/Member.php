@@ -39,4 +39,11 @@ class Member extends Model
             get: fn() => $this->first_name . ' ' . $this->last_name
         );
     }
+
+    public function elections()
+    {
+        return $this->belongsToMany(Election::class)
+            ->using(Voter::class)
+            ;
+    }
 }
