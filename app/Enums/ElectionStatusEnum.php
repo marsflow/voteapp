@@ -6,13 +6,15 @@ enum ElectionStatusEnum: string
 {
     case DRAFT = '0';
     case PUBLISHED = '1';
-    case CANCELED = '2';
+    case COMPLETED = '2';
+    case CANCELED = '3';
 
     public function label(): string
     {
         return match ($this) {
             self::DRAFT => 'Draft',
             self::PUBLISHED   => 'Published',
+            self::COMPLETED => 'Completed',
             self::CANCELED => 'Canceled',
         };
     }

@@ -19,6 +19,7 @@ use Filament\Tables\Table;
 class ElectionResource extends Resource
 {
     protected static ?string $model = Election::class;
+    protected static ?int $navigationSort = 2;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

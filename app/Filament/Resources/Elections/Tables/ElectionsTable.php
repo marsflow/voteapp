@@ -24,6 +24,7 @@ class ElectionsTable
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('status')
+                    ->formatStateUsing((fn($record) => $record->status->label()))
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
