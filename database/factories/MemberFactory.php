@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,6 +25,7 @@ class MemberFactory extends Factory
             'born_date' => fake()->dateTimeBetween('-70 years', '-18 years'),
             'address' => fake()->address(),
             'joined_at' => fake()->dateTimeBetween(),
+            'user_id' => User::factory(),
         ];
     }
 }
