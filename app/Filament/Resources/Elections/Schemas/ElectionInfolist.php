@@ -38,16 +38,16 @@ class ElectionInfolist
                     ])
                     ->columnSpanFull()
                     ->columns(2),
-                Section::make('Commitees')
+                Section::make('Commmitees')
                     ->schema([
-                        RepeatableEntry::make('committees')
+                        RepeatableEntry::make('committee_members')
                             ->table([
                                 TableColumn::make('Full Name'),
                                 TableColumn::make('Head'),
                             ])
                             ->schema([
                                 TextEntry::make('full_name'),
-                                IconEntry::make('is_head')
+                                IconEntry::make('pivot.is_head')
                                     ->boolean(),
                             ])
                     ])

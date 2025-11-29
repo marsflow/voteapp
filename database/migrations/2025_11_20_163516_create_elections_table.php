@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->dateTimeTz('started_at');
             $table->dateTimeTz('ended_at');
-            $table->char('status', 1);
+            $table->char('status', 1)->default('0');
             $table->timestamps();
         });
     }

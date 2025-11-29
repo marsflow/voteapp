@@ -68,7 +68,7 @@ class ElectionSeeder extends Seeder
             $commiteesIds[$head->id] = ['is_head' => true];
 
             // insert committees
-            $election->committees()->attach($commiteesIds->toArray());
+            $election->committee_members()->attach($commiteesIds->toArray());
             if ($election->status === ElectionStatusEnum::DRAFT) {
                 $election->voters()
                     ->saveMany($memberWithoutCommitees->map(function ($member) use ($election) {

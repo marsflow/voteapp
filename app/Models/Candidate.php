@@ -9,6 +9,13 @@ class Candidate extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'order',
+        'election_id'
+    ];
+
     public function candidateMembers()
     {
         return $this->hasMany(CandidateMember::class);

@@ -11,6 +11,14 @@ class Election extends Model
     /** @use HasFactory<\Database\Factories\ElectionFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'started_at',
+        'ended_at',
+        'status',
+    ];
+
     protected $casts = [
         'status' => ElectionStatusEnum::class,
     ];
@@ -28,6 +36,12 @@ class Election extends Model
 
     public function committees()
     {
-        return $this->belongsToMany(Member::class, Committee::make()->getTable());
+        return $this->hasMany(Committee::class);
+    }
+
+    public function committee_members()
+    {
+        return $this->belongsToMany(Member::class, Committee::make()->getTable())
+            ->withPivot('is_head');
     }
 }
